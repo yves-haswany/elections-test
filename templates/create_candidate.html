@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Candidate</title>
+</head>
+<body>
+    <h2>Create New Candidate</h2>
+    <form method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label>Party:</label>
+        <input type="text" name="party" required><br>
+        <label>Candidate List:</label>
+        <select name="list_id" required>
+            {% for cl in lists %}
+                <option value="{{ cl.id }}">{{ cl.name }}</option>
+            {% endfor %}
+        </select><br>
+        <!--<label>Votes</label>
+        <input type="number" name="votes" required="false"> <br>-->
+
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorted Votes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        h3 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Vote Sorting Results</h2>
+
+    {% for list in results %}
+        <h3>{{ list.list_name }} — Total List Votes: {{ list.total_votes }}</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Candidate Name</th>
+                <th>Party</th>
+                <th>Votes</th>
+            </tr>
+            {% for candidate in list.candidates %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ candidate.name }}</td>
+                <td>{{ candidate.party }}</td>
+                <td>{{ candidate.votes }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

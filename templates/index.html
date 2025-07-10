@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maten Election Record</title>
+    <link rel="stylesheet" href="/static/style.css/">
+</head>
+<body>
+    <div class="form-container">
+         <h1>ELECTIONS 2026</h1>
+         <h2>MATEN</h2>
+        <form action="/submit" method="post">
+           <label for="electorID">Enter the elector's ID:</label>
+           <input type="number" id="electorID" name="electorID" required>
+           <button type="submit">Submit</button>
+           <button type="reset">Cancel</button>
+         <!--  <button type="submit" formaction="/electors" formmethod="get" formnovalidate>Go to electors</button>--> 
+            <a href="{{ url_for('dashboard') }}">
+                    <button type="button">Back to Dashboard</button>
+            </a>
+           <button type="submit" formaction="/logout" formmethod="get" formnovalidate>Logout</button>
+        </form>
+    </div>
+</body>
+</html>

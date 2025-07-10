@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candidate Lists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-bottom: 40px;
+        }
+
+        .list-header {
+            background-color: #dcdcdc;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .sub-table td {
+            border: 1px solid #444;
+            padding: 8px;
+        }
+
+        .sub-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .back-link {
+            margin-top: 30px;
+        }
+        .vote-count{
+            background-color: #dcdcdc;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        td{
+           text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Candidate Lists</h2>
+
+    {% for clist in candidate_lists %}
+    <table>
+        <tr>
+            <td class="list-header" colspan="2">{{ clist.name }}</td>
+            <td class="vote-count">{{clist.list_votes}}</td>
+        </tr>
+        {% for candidate in clist.candidates %}
+        <tr class="sub-table">
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.party }}</td>
+            <td>{{ candidate.votes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+
+    <!--<div class="back-link">
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>-->
+</body>
+</html>

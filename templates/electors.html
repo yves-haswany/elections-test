@@ -1,0 +1,40 @@
+<!-- templates/electors.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Electors</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Elector ID</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for elector in electors %}
+            <tr>
+                <td>{{ elector.elector_id }}</td>
+                <td>{{ elector.submitted_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <form action="{{ url_for('export_electors') }}" method="get">
+        <button type="submit">Download as Excel</button>
+    </form>
+
+    <br>
+    <form method="get" action="/dashboard">
+        <button type="submit">Back to dashboard</button>
+    </form>
+
+    <form method="get" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

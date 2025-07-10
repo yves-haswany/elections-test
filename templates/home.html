@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Select an action:</p>
+
+    <div class="button-container">
+        <a href="{{ url_for('index') }}"><button>Go to votes form</button></a>
+        <a href="{{ url_for('sort_votes') }}"><button>Sort Votes</button></a>
+        <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+    </div>
+</body>
+</html>

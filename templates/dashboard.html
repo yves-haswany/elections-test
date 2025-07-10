@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .dashboard-container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            text-align: center;
+            background-color: #f8f8f8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .dashboard-btn {
+            display: block;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+            height:30px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .dashboard-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Elections 2026</h2>
+
+        <a class="dashboard-btn" href="{{ url_for('index') }}">Submit Elector IDs</a>
+        <a class="dashboard-btn" href="{{ url_for('view_electors') }}">View Electors</a>
+        <a class="dashboard-btn"href="{{ url_for('export_candidate_lists') }}">
+         <button>Export Candidate Lists (Excel)</button>
+        </a>
+        <a class="dashboard-btn"href="{{ url_for('cast_vote') }}">Cast a Vote</a>
+        <a class="dashboard-btn" href="{{ url_for('sort_votes') }}">Sort Votes</a> 
+        <a class="dashboard-btn" href="{{ url_for('logout') }}">Logout</a>
+
+        <!-- Optional: Placeholder for future vote sorting -->
+        
+    </div>
+</body>
+</html>
